@@ -26,7 +26,6 @@ public class AccountStorer implements AccountRepository {
                 account.password().value()
         );
     }
-
     @Override
     public Optional<Account> getById(AccountId id) {
         var sql = "SELECT * FROM users u WHERE u.id = ?";
