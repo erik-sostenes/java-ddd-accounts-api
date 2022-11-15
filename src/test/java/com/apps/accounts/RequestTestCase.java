@@ -39,11 +39,7 @@ public abstract class RequestTestCase {
                 .andExpect(content().string(""));
     }
 
-    protected void assertRequest(
-            String method,
-            String endpoint,
-            Integer expectedStatusCode
-    ) throws Exception {
+    protected void assertRequest(String method, String endpoint, Integer expectedStatusCode) throws Exception {
         mockMvc
                 .perform(request(HttpMethod.valueOf(method), endpoint))
                 .andExpect(status().is(expectedStatusCode))

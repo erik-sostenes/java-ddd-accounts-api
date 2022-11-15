@@ -19,7 +19,6 @@ final class AccountStorerShould extends AccountsModuleInfrastructureTestCase {
     }
 
     @Test
-
     public void save_account_successfully() {
         var account = AccountMother.random();
         storer.save(account);
