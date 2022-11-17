@@ -14,15 +14,6 @@ public final class Account {
     private AccountPassword password;
     private AccountRol rol;
 
-    public Account(AccountIdentifier identifier, AccountName name, AccountLastName lastName, AccountEmail email, AccountPassword password, AccountRol rol) {
-        this.identifier = identifier;
-        this.name = name;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.rol = rol;
-    }
-
     public AccountId id() {
         return id;
     }

@@ -2,8 +2,15 @@ package com.context.mooc.accounts.application.update;
 
 import com.context.mooc.accounts.AccountsModuleUnitTestCase;
 import com.context.mooc.accounts.domain.*;
+import com.context.mooc.shared.domain.exceptions.NotFoundException;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.Optional;
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.when;
 
 final class AccountUpdaterShould extends AccountsModuleUnitTestCase {
     private AccountUpdater updater;
@@ -15,12 +22,24 @@ final class AccountUpdaterShould extends AccountsModuleUnitTestCase {
     }
 
     @Test
-    void update_a_valid_course() {
+    void update_a_valid_account() {
         UpdateAccountRequest request = UpdateAccountRequestMother.random();
         Account account = AccountMother.fromRequestUpdateAccount(request);
-        AccountId id = new AccountId(request.id());
+
+        when(repository.getById(account.id())).thenReturn(Optional.of(account));
 
         updater.update(request);
-        shouldHaveUpdated(id, account);
+        shouldHaveUpdated(account.id(), account);
+    }
+
+    @Test
+    @DisplayName("should not update an account that does not exist in the database")
+    void not_update_an_account() {
+        UpdateAccountRequest request = UpdateAccountRequestMother.random();
+        Account account = AccountMother.fromRequestUpdateAccount(request);
+
+        when(repository.getById(account.id())).thenReturn(Optional.empty());
+
+        assertThrows(NotFoundException.class, () -> updater.update(request));
     }
 }
