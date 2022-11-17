@@ -26,6 +26,20 @@ public class AccountStorer implements AccountRepository {
                 account.password().value()
         );
     }
+
+    @Override
+    public void update(AccountId id, Account account) {
+        var sql = "UPDATE users SET identifier = ?, rol = ?, name = ?, last_name = ?, email = ?, password = ? WHERE id = ?";
+        jdbcTemplate.update(sql,
+                account.identifier().value(),
+                account.rol().value(),
+                account.name().value(),
+                account.lastName().value(),
+                account.email().value(),
+                account.password().value(),
+                id.value());
+    }
+
     @Override
     public Optional<Account> getById(AccountId id) {
         var sql = "SELECT * FROM users u WHERE u.id = ?";

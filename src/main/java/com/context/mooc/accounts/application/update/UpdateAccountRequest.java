@@ -1,4 +1,4 @@
-package com.context.mooc.accounts.application.create;
+package com.context.mooc.accounts.application.update;
 
 import lombok.AllArgsConstructor;
 
@@ -40,4 +40,3 @@ public final class UpdateAccountRequest {
         return rol;
     }
 }
-

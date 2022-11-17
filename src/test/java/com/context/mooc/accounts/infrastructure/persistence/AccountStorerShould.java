@@ -4,33 +4,37 @@ import com.context.mooc.accounts.AccountsModuleInfrastructureTestCase;
 import com.context.mooc.accounts.domain.AccountMother;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.annotation.Rollback;
 
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 final class AccountStorerShould extends AccountsModuleInfrastructureTestCase {
-    private AccountStorer storer;
+    private AccountStorer store;
 
     @BeforeEach
     void setUp() {
-        storer = new AccountStorer(jdbcTemplate);
+        store = new AccountStorer(jdbcTemplate);
     }
 
     @Test
-    public void save_account_successfully() {
+    void save_account_successfully() {
         var account = AccountMother.random();
-        storer.save(account);
+        store.save(account);
     }
-
     @Test
-    void return_an_existing_course() {
+    void return_an_existing_account() {
         var account = AccountMother.random();
 
-        storer.save(account);
+        store.save(account);
 
-        assertEquals(Optional.ofNullable(account), storer.getById(account.id()));
+        assertEquals(Optional.of(account), store.getById(account.id()));
     }
+    @Test
+    void update_account_successfully() {
+        var account = AccountMother.random();
+        store.save(account);
 
+        store.update(account.id(), account);
+    }
 }
