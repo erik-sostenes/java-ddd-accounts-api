@@ -1,31 +1,27 @@
-package com.context.mooc.accounts.application.create;
+package com.apps.accounts.controllers;
 
-import lombok.AllArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
-@AllArgsConstructor
-public final class CreateAccountRequest {
-    private String id;
+@Setter
+@ToString
+final class Request {
     private String identifier;
     private String name;
-    private String lastName;
+    private String last_name;
     private String email;
     private String password;
     private String rol;
 
-    public String id() {
-        return id;
-    }
-
     public String identifier() {
         return identifier;
     }
-
     public String name() {
         return name;
     }
 
     public String lastName() {
-        return lastName;
+        return last_name;
     }
 
     public String email() {

@@ -41,7 +41,7 @@ final class AccountsPostControllerShould extends RequestTestCase {
     }
 
     @Test
-    @DisplayName("Fail the creation of a course, why the filed ")
+    @DisplayName("Fail the creation of a course, why the filed")
     void fail_the_creation_of_a_course_for_missing_fields() throws Exception {
         assertRequestWithBody(
                 "POST",

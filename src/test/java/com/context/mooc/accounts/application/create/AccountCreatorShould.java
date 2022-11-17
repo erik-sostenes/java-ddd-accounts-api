@@ -14,8 +14,8 @@ final class AccountCreatorShould extends AccountsModuleUnitTestCase {
     }
     @Test
     void save_a_valid_course() {
-        CreateAccountRequest request =  CreateAccountRequestMother.random();
-        Account account = AccountMother.fromRequest(request);
+        CreateAccountRequest request = CreateAccountRequestMother.random();
+        Account account = AccountMother.fromRequestCreateAccount(request);
 
         creator.create(request);
         shouldHaveSaved(account);

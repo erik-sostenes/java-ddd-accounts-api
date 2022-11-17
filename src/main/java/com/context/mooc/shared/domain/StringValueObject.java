@@ -23,12 +23,15 @@ public abstract class StringValueObject {
     }
     private void fromValue(String value, String regex) {
         if(!regex.isBlank()) {
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(value);
-            if (!matcher.matches())
+            if (!patternMatches(value, regex))
                 throw new UnprocessableEntityException(String.format(message, value));
         }
-        if (!Optional.ofNullable(value).isPresent())
+        if (Optional.ofNullable(value).isEmpty())
             throw new UnprocessableEntityException(String.format(message, value));
+    }
+    private boolean patternMatches(String value, String regexPattern) {
+        return Pattern.compile(regexPattern)
+                .matcher(value)
+                .matches();
     }
 }

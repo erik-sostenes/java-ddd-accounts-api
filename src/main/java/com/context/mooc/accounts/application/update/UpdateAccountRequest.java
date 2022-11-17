@@ -3,7 +3,7 @@ package com.context.mooc.accounts.application.create;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public final class CreateAccountRequest {
+public final class UpdateAccountRequest {
     private String id;
     private String identifier;
     private String name;
@@ -40,3 +40,4 @@ public final class CreateAccountRequest {
         return rol;
     }
 }
+

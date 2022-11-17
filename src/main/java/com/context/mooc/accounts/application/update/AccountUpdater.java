@@ -1,14 +1,11 @@
 package com.context.mooc.accounts.application.create;
 
 import com.context.mooc.accounts.domain.*;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
-public final class AccountCreator {
-    private AccountRepository accountRepository;
-    public void create(CreateAccountRequest request) {
+public final class AccountUpdater {
+    public void update(UpdateAccountRequest request) {
         Account account = new Account(
                 new AccountId(request.id()),
                 new AccountIdentifier(request.identifier()),
@@ -18,6 +15,6 @@ public final class AccountCreator {
                 new AccountPassword(request.password()),
                 new AccountRol(request.rol()));
 
-        accountRepository.save(account);
+        System.out.println(account);
     }
 }
