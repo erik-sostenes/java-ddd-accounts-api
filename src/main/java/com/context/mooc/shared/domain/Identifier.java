@@ -1,12 +1,12 @@
 package com.context.mooc.shared.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @EqualsAndHashCode
-public abstract class Identifier {
+public abstract class Identifier implements Serializable {
     private UUID value;
 
     public Identifier(String value) {
