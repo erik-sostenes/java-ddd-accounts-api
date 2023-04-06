@@ -1,5 +1,6 @@
 package com.context.mooc.shared.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 
 import java.util.UUID;

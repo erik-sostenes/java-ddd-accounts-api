@@ -4,7 +4,6 @@ import com.context.mooc.shared.domain.exceptions.UnprocessableEntityException;
 import lombok.EqualsAndHashCode;
 
 import java.util.Optional;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @EqualsAndHashCode

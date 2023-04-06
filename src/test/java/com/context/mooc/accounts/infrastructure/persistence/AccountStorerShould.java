@@ -10,11 +10,11 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 final class AccountStorerShould extends AccountsModuleInfrastructureTestCase {
-    private AccountStorer store;
+    private AccountStore store;
 
     @BeforeEach
     void setUp() {
-        store = new AccountStorer(jdbcTemplate);
+        store = new AccountStore(jdbcTemplate);
     }
 
     @Test
@@ -22,6 +22,7 @@ final class AccountStorerShould extends AccountsModuleInfrastructureTestCase {
         var account = AccountMother.random();
         store.save(account);
     }
+
     @Test
     void return_an_existing_account() {
         var account = AccountMother.random();
@@ -30,6 +31,7 @@ final class AccountStorerShould extends AccountsModuleInfrastructureTestCase {
 
         assertEquals(Optional.of(account), store.getById(account.id()));
     }
+
     @Test
     void update_account_successfully() {
         var account = AccountMother.random();

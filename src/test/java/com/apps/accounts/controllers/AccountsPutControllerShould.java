@@ -3,7 +3,7 @@ package com.apps.accounts.controllers;
 import com.apps.accounts.RequestTestCase;
 import org.junit.jupiter.api.Test;
 
-public class AccountsPutControllerShould extends RequestTestCase {
+final class AccountsPutControllerShould extends RequestTestCase {
     @Test
     void update_a_valid_account() throws Exception {
         assertRequestWithBody(

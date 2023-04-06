@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
-public class AccountStorer implements AccountRepository {
+public class AccountStore implements AccountRepository {
     private final JdbcTemplate jdbcTemplate;
     @Override
     public void save(Account account) {
@@ -38,6 +38,12 @@ public class AccountStorer implements AccountRepository {
                 account.email().value(),
                 account.password().value(),
                 id.value());
+    }
+
+    @Override
+    public void delete(AccountId id) {
+        var sql = "DELETE FROM users WHERE ID = ?";
+        jdbcTemplate.update(sql, id.value());
     }
 
     @Override
