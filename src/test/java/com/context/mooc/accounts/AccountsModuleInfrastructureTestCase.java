@@ -1,6 +1,6 @@
 package com.context.mooc.accounts;
 
-import com.context.mooc.shared.infrastrucutre.DataSourceConfig;
+import com.context.mooc.shared.infrastructure.config.DataSourceConfig;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

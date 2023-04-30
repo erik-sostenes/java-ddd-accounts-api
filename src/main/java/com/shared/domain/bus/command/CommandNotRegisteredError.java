@@ -1,4 +1,4 @@
-package com.context.mooc.shared.domain.bus.command;
+package com.shared.domain.bus.command;
 
 public final class CommandNotRegisteredError extends Exception {
     public CommandNotRegisteredError(Class<? extends Command> command) {

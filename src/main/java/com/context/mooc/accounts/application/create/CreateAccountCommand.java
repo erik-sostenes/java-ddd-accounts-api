@@ -4,7 +4,7 @@ import com.shared.domain.bus.command.Command;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public final class CreateAccountRequest implements Command {
+public final class CreateAccountCommand implements Command {
     private String id;
     private String identifier;
     private String name;

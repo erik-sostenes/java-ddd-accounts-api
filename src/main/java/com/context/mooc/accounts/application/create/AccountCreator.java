@@ -8,15 +8,18 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public final class AccountCreator {
     private AccountRepository accountRepository;
-    public void create(CreateAccountRequest request) {
-        Account account = new Account(
-                new AccountId(request.id()),
-                new AccountIdentifier(request.identifier()),
-                new AccountName(request.name()),
-                new AccountLastName(request.lastName()),
-                new AccountEmail(request.email()),
-                new AccountPassword(request.password()),
-                new AccountRol(request.rol()));
+
+    public void create(
+            AccountId id,
+            AccountIdentifier identifier,
+            AccountName name,
+            AccountLastName lastName,
+            AccountEmail email,
+            AccountPassword password,
+            AccountRol rol
+            ) {
+
+        var account = Account.create(id, identifier, name, lastName, email, password, rol);
 
         accountRepository.save(account);
     }

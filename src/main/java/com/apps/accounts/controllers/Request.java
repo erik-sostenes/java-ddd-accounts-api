@@ -16,6 +16,7 @@ final class Request {
     public String identifier() {
         return identifier;
     }
+
     public String name() {
         return name;
     }

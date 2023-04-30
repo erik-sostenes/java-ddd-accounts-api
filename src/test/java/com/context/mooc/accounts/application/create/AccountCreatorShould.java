@@ -14,10 +14,19 @@ final class AccountCreatorShould extends AccountsModuleUnitTestCase {
     }
     @Test
     void save_a_valid_course() {
-        CreateAccountRequest request = CreateAccountRequestMother.random();
+        CreateAccountCommand request = CreateAccountRequestMother.random();
         Account account = AccountMother.fromRequestCreateAccount(request);
 
-        creator.create(request);
+        creator.create(
+                new AccountId(request.id()),
+                new AccountIdentifier(request.identifier()),
+                new AccountName(request.name()),
+                new AccountLastName(request.lastName()),
+                new AccountEmail(request.email()),
+                new AccountPassword(request.password()),
+                new AccountRol(request.rol())
+        );
+
         shouldHaveSaved(account);
     }
 }
