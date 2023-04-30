@@ -1,4 +1,4 @@
-package com.context.mooc.shared.infrastrucutre;
+package com.context.mooc.shared.infrastructure.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;

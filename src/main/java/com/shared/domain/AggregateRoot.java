@@ -1,6 +1,6 @@
-package com.context.mooc.shared.domain;
+package com.shared.domain;
 
-import com.context.mooc.shared.domain.bus.event.DomainEvent;
+import com.shared.domain.bus.event.DomainEvent;
 
 import java.util.ArrayList;
 import java.util.Collections;

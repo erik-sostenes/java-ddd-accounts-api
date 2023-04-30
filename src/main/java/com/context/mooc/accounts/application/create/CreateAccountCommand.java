@@ -1,9 +1,10 @@
 package com.context.mooc.accounts.application.create;
 
+import com.shared.domain.bus.command.Command;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
-public final class CreateAccountRequest {
+public final class CreateAccountRequest implements Command {
     private String id;
     private String identifier;
     private String name;
