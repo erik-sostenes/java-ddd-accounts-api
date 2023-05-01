@@ -7,7 +7,7 @@ public final class AccountMother {
     public static Account create(AccountId id, AccountIdentifier identifier, AccountName name, AccountLastName lastName, AccountEmail email, AccountPassword password, AccountRol rol) {
         return new Account(id, identifier, name, lastName, email, password, rol);
     }
-    public static Account fromRequestCreateAccount(CreateAccountCommand request) {
+    public static Account fromCommandCreateAccount(CreateAccountCommand request) {
         return create(
                 AccountIdMother.create(request.id()),
                 AccountIdentifierMother.create(request.identifier()),
@@ -18,7 +18,7 @@ public final class AccountMother {
                 AccountRolMother.create(request.rol())
         );
     }
-    public static Account fromRequestUpdateAccount(UpdateAccountRequest request) {
+    public static Account fromCommandUpdateAccount(UpdateAccountRequest request) {
         return create(
                 AccountIdMother.create(request.id()),
                 AccountIdentifierMother.create(request.identifier()),

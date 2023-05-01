@@ -1,6 +1,6 @@
-package com.context.mooc.shared.domain.accounts;
+package com.shared.domain.accounts;
 
-import com.context.mooc.shared.domain.bus.event.DomainEvent;
+import com.shared.domain.bus.event.DomainEvent;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;

@@ -2,7 +2,7 @@ package com.context.mooc.accounts.application.create;
 
 import com.context.mooc.accounts.domain.*;
 
-class CreateAccountRequestMother {
+class CreateAccountCommandMother {
     public static CreateAccountCommand create(
             AccountId id,
             AccountIdentifier identifier,

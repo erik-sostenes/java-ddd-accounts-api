@@ -24,7 +24,7 @@ final class AccountUpdaterShould extends AccountsModuleUnitTestCase {
     @Test
     void update_a_valid_account() {
         UpdateAccountRequest request = UpdateAccountRequestMother.random();
-        Account account = AccountMother.fromRequestUpdateAccount(request);
+        Account account = AccountMother.fromCommandUpdateAccount(request);
 
         when(repository.getById(account.id())).thenReturn(Optional.of(account));
 
@@ -36,7 +36,7 @@ final class AccountUpdaterShould extends AccountsModuleUnitTestCase {
     @DisplayName("should not update an account that does not exist in the database")
     void not_update_an_account() {
         UpdateAccountRequest request = UpdateAccountRequestMother.random();
-        Account account = AccountMother.fromRequestUpdateAccount(request);
+        Account account = AccountMother.fromCommandUpdateAccount(request);
 
         when(repository.getById(account.id())).thenReturn(Optional.empty());
 

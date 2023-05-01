@@ -1,4 +1,4 @@
-package com.context.mooc.shared.domain.bus.event;
+package com.shared.domain.bus.event;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

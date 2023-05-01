@@ -1,5 +1,6 @@
 package com.context.mooc.accounts.domain;
 
+import com.shared.domain.accounts.AccountCreatedDomainEvent;
 import com.shared.domain.AggregateRoot;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -23,7 +24,19 @@ public final class Account extends AggregateRoot {
                                  AccountPassword password,
                                  AccountRol rol
     ) {
-        return new Account(id, identifier, name, lastName, email, password, rol);
+        Account account = new Account(id, identifier, name, lastName, email, password, rol);
+
+        account.record(new AccountCreatedDomainEvent(
+                id.value(),
+                identifier.value(),
+                name.value(),
+                lastName.value(),
+                email.value(),
+                password.value(),
+                rol.value()
+        ));
+
+        return account;
     }
 
     public AccountId id() {
