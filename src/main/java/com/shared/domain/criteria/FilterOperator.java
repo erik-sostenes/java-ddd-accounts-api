@@ -1,4 +1,4 @@
-package com.context.mooc.shared.domain.criteria;
+package com.shared.domain.criteria;
 
 public enum FilterOperator {
     EQUAL("="),
